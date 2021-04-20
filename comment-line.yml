@@ -1,0 +1,11 @@
+- name: commenting line in sudoers file
+  hosts:  all
+  become: true
+  become_method: sudo
+  tasks:
+  - name: commenting line under sudo
+    lineinfile:
+     dest: /etc/sudoers
+     regexp: ^devops
+     line: "#devops"
+     state: present
